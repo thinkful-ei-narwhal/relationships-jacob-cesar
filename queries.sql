@@ -30,3 +30,9 @@
     where dept_name= 'Sales';
 
     -- List only the managers that are assigned to the 'Watch paint dry' project.
+    SELECT e.emp_name as employee, d.dept_name as department, p.project_name as projects 
+    FROM department d
+    JOIN employee e ON d.manager = e.id
+    JOIN employee_project on e.id= employee_project.emp_id
+    JOIN project p on employee_project.project_id= p.id
+    where p.project_name ='Watch paint dry';
